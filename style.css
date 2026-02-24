@@ -96,7 +96,7 @@ tbody th {
   margin: 30px 0;
 }
 
-.location-card h2 {
+.location-card h3 {
   font-family: "Righteous", sans-serif;
   font-size: 2rem;
   margin-bottom: 5px;
@@ -118,4 +118,24 @@ footer {
   max-width: 100%;
   height: auto;
   margin: 0 auto 30px auto; /* adds bottom spacing */
+}
+
+.skip-link {
+  position: absolute;
+  left: -999px;
+  top: 10px;
+  background: white;
+  color: black;
+  padding: 8px 12px;
+  z-index: 1000;
+}
+
+.skip-link:focus {
+  left: 10px;
+}
+
+.section-title {
+  font-family: "Righteous", sans-serif;
+  font-size: 2rem;
+  margin: 10px 0 20px;
 }
