@@ -1,0 +1,21 @@
+header {
+  background: black;
+  padding: 20px;
+}
+
+header h1 {
+  font-family: "Righteous", sans-serif;
+  color: salmon;
+  text-align: center;
+  font-size: 2.5rem;
+}
+
+nav {
+  background: salmon;
+  padding: 10px 20px;
+}
+
+nav a {
+  color: black;
+  margin-right: 20px;
+}
