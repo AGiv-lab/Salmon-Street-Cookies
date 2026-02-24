@@ -1,26 +1,72 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Salmon Street Cookies</title>
-</head>
-<body>
 
+  <!-- Google Font for headings -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Righteous&display=swap" rel="stylesheet">
+
+  <link rel="stylesheet" href="reset.css" />
+  <link rel="stylesheet" href="style.css" />
+</head>
+
+<body>
   <header>
-    <h1><em>Salmon Street Cookies</em></h1>
+    <h1>Welcome to Salmon Street Cookies!</h1>
+
+    <nav>
+      <a href="index.html">Home</a>
+      <a href="sales.html">Sales Data</a>
+    </nav>
   </header>
+
   <img class="hero-salmon" src="images/salmon.png" alt="Illustration of a salmon" />
-  
+
   <main>
-    <!-- content goes here -->
+    <section aria-label="Store locations">
+      <article class="location-card">
+        <h2>Seattle</h2>
+        <p>Hours Open: 6am - 7pm</p>
+        <p>Contact Info: 123-456-7890</p>
+        <p>Location: 2901 3rd Ave #300, Seattle, WA 98121</p>
+      </article>
+
+      <article class="location-card">
+        <h2>Tokyo</h2>
+        <p>Hours Open: 6am - 7pm</p>
+        <p>Contact Info: 222-222-2222</p>
+        <p>Location: 1 Chome-1-2 Oshiage, Sumida City, Tokyo 131-8634</p>
+      </article>
+
+      <article class="location-card">
+        <h2>Dubai</h2>
+        <p>Hours Open: 6am - 7pm</p>
+        <p>Contact Info: 333-333-3333</p>
+        <p>Location: 1 Sheikh Mohammed bin Rashid Blvd - Dubai</p>
+      </article>
+
+      <article class="location-card">
+        <h2>Paris</h2>
+        <p>Hours Open: 6am - 7pm</p>
+        <p>Contact Info: 444-444-4444</p>
+        <p>Location: Champ de Mars, 5 Avenue Anatole France, 75007 Paris</p>
+      </article>
+
+      <article class="location-card">
+        <h2>Lima</h2>
+        <p>Hours Open: 6am - 7pm</p>
+        <p>Contact Info: 555-555-5555</p>
+        <p>Location: Ca. Gral. Borgoño cuadra 8, Miraflores 15074</p>
+      </article>
+    </section>
   </main>
 
   <footer>
-    <p>&copy; 2026 Salmon Street Cookies</p>
+    <p>© 2026 Salmon Street Cookies</p>
   </footer>
-
-  <!-- JavaScript -->
-  <script src="app.js"></script>
 </body>
 </html>
