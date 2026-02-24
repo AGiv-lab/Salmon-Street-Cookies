@@ -17,11 +17,18 @@ h2 {
 nav {
   background: salmon;
   padding: 10px 20px;
+  text-align: center;
 }
 
 nav a {
   color: black;
+  text-decoration: none;
   margin-right: 20px;
+  font-weight: bold;
+}
+
+nav a:hover {
+  text-decoration: underline;
 }
 
 .hero-salmon {
@@ -42,6 +49,19 @@ table {
   border-collapse: collapse;
   margin-top: 20px;
   font-family: Arial, Helvetica, sans-serif; /* sales data font */
+}
+
+/* City rows (all store rows in tbody) */
+#sales-table tbody td,
+#sales-table tbody th {
+  background: salmon;
+}
+
+/* Optional: make the last column (daily totals) gray like the mockup */
+#sales-table tbody td:last-child {
+  background: #777;
+  color: white;
+  font-weight: bold;
 }
 
 th, td {
