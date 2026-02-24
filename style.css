@@ -28,24 +28,18 @@ nav a:hover {
   text-decoration: underline;
 }
 
-.hero-salmon {
-  display: block;
-  max-width: 100%;
-  height: auto;
-  margin: 0 auto;
-}
-
 main {
   background: white;
   padding: 30px;
   font-family: Georgia, Times, serif;
 }
 
-table {
+#sales-table {
   width: 100%;
   border-collapse: collapse;
-  margin-top: 20px;
-  font-family: Arial, Helvetica, sans-serif; /* sales data font */
+  margin: 40px auto;
+  max-width: 1100px;
+  font-family: Arial, Helvetica, sans-serif;
 }
 
 /* City rows (all store rows in tbody) */
@@ -61,10 +55,6 @@ table {
   font-weight: bold;
 }
 
-#sales-table {
-  margin: 40px auto;
-  max-width: 1100px;
-}
 
 th, td {
   border: 1px solid #333;
