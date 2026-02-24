@@ -1,13 +1,19 @@
 header {
   background: black;
-  padding: 20px 0 0;   /* no bottom padding so nav touches header */
   margin: 0;
-  display: block;
+  padding: 0;
+
 }
 
 header h1 {
-  margin: 0;           /* removes default h1 margin gap */
-  padding: 20px 0;     /* keeps spacing inside the black banner */
+  font-family: "Righteous", sans-serif;
+  color: salmon;
+  text-align: center;
+  font-size: 2.5rem;
+  font-style: italic;
+
+  margin: 0;              /* removes gap */
+  padding: 20px 0;        /* controls black bar height */
 }
 
 nav {
@@ -88,7 +94,6 @@ tbody th {
 .location-card h3 {
   font-family: "Righteous", sans-serif;
   font-size: 2rem;
-   font-weight: 800; 
   margin-bottom: 5px;
 }
 
@@ -107,7 +112,14 @@ footer {
   display: block;
   max-width: 100%;
   height: auto;
-  margin: 0 auto 30px auto; /* adds bottom spacing */
+  margin: 0 auto;
+
+}
+
+.hero-wrapper {
+  border-bottom: 1px solid #999;   /* thin line across page */
+  padding-bottom: 20px;
+  margin-bottom: 30px;
 }
 
 .skip-link {
