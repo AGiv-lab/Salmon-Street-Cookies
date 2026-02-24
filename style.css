@@ -2,7 +2,6 @@ header {
   background: black;
   margin: 0;
   padding: 0;
-
 }
 
 header h1 {
@@ -12,13 +11,13 @@ header h1 {
   font-size: 2.5rem;
   font-style: italic;
 
-  margin: 0;              /* removes gap */
-  padding: 20px 0;        /* controls black bar height */
+  margin: 0;        /* removes browser default gap */
+  padding: 20px 0;  /* controls height of black bar */
 }
 
 nav {
   background: salmon;
-  padding: 10px 20px;
+  padding: 10px 20px 10px 80px; /* matches example left spacing */
   text-align: left;
 }
 
@@ -27,6 +26,7 @@ nav a {
   text-decoration: none;
   margin-right: 20px;
   font-weight: bold;
+  display: inline-block;
 }
 
 nav a:hover {
@@ -35,7 +35,7 @@ nav a:hover {
 
 main {
   background: white;
-  padding: 30px;
+  padding: 30px 30px 30px 60px;
   font-family: Georgia, Times, serif;
 }
 
