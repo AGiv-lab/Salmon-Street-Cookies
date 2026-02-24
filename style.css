@@ -19,3 +19,36 @@ nav a {
   color: black;
   margin-right: 20px;
 }
+
+main {
+  background: white;
+  padding: 30px;
+  font-family: Georgia, Times, serif;
+}
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 20px;
+  font-family: Arial, Helvetica, sans-serif; /* sales data font */
+}
+
+th, td {
+  border: 1px solid #333;
+  padding: 10px;
+  text-align: center;
+}
+
+thead th {
+  background: #777;
+  color: white;
+}
+
+tfoot th {
+  background: #777;
+  color: white;
+}
+
+tbody th {
+  text-align: left;
+}
