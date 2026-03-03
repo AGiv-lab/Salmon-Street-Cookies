@@ -149,12 +149,45 @@ function renderTable() {
   renderFooter();
 }
 
-// 11) Create store instances (the starting numbers)
+// Create store instances (the starting numbers)
 new CookieStore('Seattle', 23, 65, 6.3);
 new CookieStore('Tokyo', 3, 24, 1.2);
 new CookieStore('Dubai', 11, 38, 3.7);
 new CookieStore('Paris', 20, 38, 2.3);
 new CookieStore('Lima', 2, 16, 4.6);
+new CookieStore('Bucharest', 15, 40, 4.2);
 
-// 12) Render on page load
+// Grab the form
+let storeForm = document.getElementById('store-form');
+
+// Add submit listener
+storeForm.addEventListener('submit', handleStoreSubmit);
+
+// Create the function
+function handleStoreSubmit(event) {
+
+  // Prevent page refresh
+  event.preventDefault();
+
+  // Grab input fields
+  let nameInput = document.getElementById('store-name');
+  let minInput = document.getElementById('store-min');
+  let maxInput = document.getElementById('store-max');
+  let avgInput = document.getElementById('store-avg');
+
+  // Get values
+  let name = nameInput.value.trim();
+  let min = Number(minInput.value);
+  let max = Number(maxInput.value);
+  let avg = Number(avgInput.value);
+
+  // Create new store
+  new CookieStore(name, min, max, avg);
+
+  // Re-render table (updates body + footer totals)
+  renderTable();
+
+  // Reset form
+  storeForm.reset();
+}
 renderTable();
