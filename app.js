@@ -16,17 +16,22 @@ const tableEl = document.getElementById('sales-table');
 const allStores = [];
 
 // 5) Constructor function
-function CookieStore(name, minCustomers, maxCustomers, avgCookiesPerCustomer) {
+function CookieStore(name, minCustomers, maxCustomers, avgCookiesPerCustomer, address, hoursOpen, contactInfo) {
   this.name = name;
   this.minCustomers = minCustomers;
   this.maxCustomers = maxCustomers;
   this.avgCookiesPerCustomer = avgCookiesPerCustomer;
+
+  this.address = address;
+  this.hoursOpen = hoursOpen;
+  this.contactInfo = contactInfo;
 
   this.hourlyCookies = [];
   this.dailyTotal = 0;
 
   allStores.push(this);
 }
+
 // 6) Prototype method: generate hourly sales + daily total
 CookieStore.prototype.generateSales = function () {
   this.hourlyCookies = [];
@@ -147,13 +152,35 @@ function renderTable() {
   renderFooter();
 }
 
-// Create store instances (the starting numbers)
-new CookieStore('Seattle', 23, 65, 6.3);
-new CookieStore('Tokyo', 3, 24, 1.2);
-new CookieStore('Dubai', 11, 38, 3.7);
-new CookieStore('Paris', 20, 38, 2.3);
-new CookieStore('Lima', 2, 16, 4.6);
-new CookieStore('Bucharest', 15, 40, 4.2);
+new CookieStore('Seattle', 23, 65, 6.3,
+  '2901 3rd Ave #300, Seattle, WA 98121',
+  '6:00am – 7:00pm',
+  '(206) 555-0123');
+
+new CookieStore('Tokyo', 3, 24, 1.2,
+  '1 Chome-1-2 Oshiage, Sumida City, Tokyo 131-8634',
+  '6:00am – 7:00pm',
+  '+81 3-5555-0101');
+
+new CookieStore('Dubai', 11, 38, 3.7,
+  '1 Sheikh Mohammed bin Rashid Blvd, Dubai',
+  '6:00am – 7:00pm',
+  '+971 4 555 0199');
+
+new CookieStore('Paris', 20, 38, 2.3,
+  'Champ de Mars, 5 Av. Anatole France, 75007 Paris',
+  '6:00am – 7:00pm',
+  '+33 1 55 55 01 55');
+
+new CookieStore('Lima', 2, 16, 4.6,
+  'Ca. Gral. Borgoño cuadra 8, Miraflores 15074',
+  '6:00am – 7:00pm',
+  '+51 1 555 0144');
+
+new CookieStore('Bucharest', 15, 40, 4.2,
+  'Strada Lipscani 12, București 030031',
+  '6:00am – 7:00pm',
+  '+40 21 555 0108');
 
 let storeForm = document.getElementById('store-form');
 if (storeForm) {
@@ -173,12 +200,49 @@ function handleStoreSubmit(event) {
     alert("Minimum customers cannot be greater than maximum customers.");
     return;
   }
+const address = `${name} Downtown, 100 Main St`;
+const hoursOpen = '6:00am – 7:00pm';
+const contactInfo = '(000) 555-0100';
 
-  new CookieStore(name, min, max, avg);
-
-  renderTable();
+ new CookieStore(name, min, max, avg, address, hoursOpen, contactInfo);
 
   storeForm.reset();
 }
 
-renderTable();
+function renderLocationsHomePage() {
+  const locationsEl = document.getElementById('locations');
+  if (!locationsEl) return; // only runs on index.html
+
+  locationsEl.textContent = '';
+
+  for (let i = 0; i < allStores.length; i++) {
+    const store = allStores[i];
+
+    const article = document.createElement('article');
+    article.className = 'location-card';
+
+    const h3 = document.createElement('h3');
+    h3.textContent = store.name;
+
+    const address = document.createElement('p');
+    address.textContent = `Address: ${store.address}`;
+
+    const hours = document.createElement('p');
+    hours.textContent = `Hours Open: ${store.hoursOpen}`;
+
+    const contact = document.createElement('p');
+    contact.textContent = `Contact: ${store.contactInfo}`;
+
+    article.appendChild(h3);
+    article.appendChild(address);
+    article.appendChild(hours);
+    article.appendChild(contact);
+
+    locationsEl.appendChild(article);
+  }
+}
+renderLocationsHomePage();
+
+if (tableEl) {
+  renderTable();
+}
