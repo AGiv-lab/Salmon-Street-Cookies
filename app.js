@@ -66,17 +66,20 @@ CookieStore.prototype.render = function (tbodyEl) {
   tbodyEl.appendChild(tr);
 };
 
-// 8) Stand-alone function: create header row
 function renderHeader() {
   const thead = document.createElement('thead');
+
+  // Caption (added once each render because table is cleared)
+  const caption = document.createElement('caption');
+  caption.textContent = 'Hourly Cookie Sales by Location';
+  tableEl.appendChild(caption);
+
   const tr = document.createElement('tr');
 
-  // Blank corner cell
   const thBlank = document.createElement('th');
   thBlank.textContent = 'Locations';
   tr.appendChild(thBlank);
 
-  // Hour headers
   for (let i = 0; i < hours.length; i++) {
     const thHour = document.createElement('th');
     thHour.scope = 'col';
@@ -84,7 +87,6 @@ function renderHeader() {
     tr.appendChild(thHour);
   }
 
-  // Daily total header
   const thTotal = document.createElement('th');
   thTotal.scope = 'col';
   thTotal.textContent = 'Daily Location Total';
@@ -130,11 +132,8 @@ function renderFooter() {
   tableEl.appendChild(tfoot);
 }
 
-// 10) Build the full table (header + body + footer)
 function renderTable() {
-  // Clear table first (important if you re-render later)
   tableEl.textContent = '';
-
   renderHeader();
 
   const tbody = document.createElement('tbody');
@@ -145,7 +144,6 @@ function renderTable() {
   }
 
   tableEl.appendChild(tbody);
-
   renderFooter();
 }
 
@@ -157,37 +155,30 @@ new CookieStore('Paris', 20, 38, 2.3);
 new CookieStore('Lima', 2, 16, 4.6);
 new CookieStore('Bucharest', 15, 40, 4.2);
 
-// Grab the form
 let storeForm = document.getElementById('store-form');
+if (storeForm) {
+  storeForm.addEventListener('submit', handleStoreSubmit);
+}
 
-// Add submit listener
-storeForm.addEventListener('submit', handleStoreSubmit);
-
-// Create the function
 function handleStoreSubmit(event) {
 
-  // Prevent page refresh
   event.preventDefault();
 
-  // Grab input fields
-  let nameInput = document.getElementById('store-name');
-  let minInput = document.getElementById('store-min');
-  let maxInput = document.getElementById('store-max');
-  let avgInput = document.getElementById('store-avg');
+  const name = document.getElementById('store-name').value.trim();
+  const min = Number(document.getElementById('store-min').value);
+  const max = Number(document.getElementById('store-max').value);
+  const avg = Number(document.getElementById('store-avg').value);
 
-  // Get values
-  let name = nameInput.value.trim();
-  let min = Number(minInput.value);
-  let max = Number(maxInput.value);
-  let avg = Number(avgInput.value);
+  if (min > max) {
+    alert("Minimum customers cannot be greater than maximum customers.");
+    return;
+  }
 
-  // Create new store
   new CookieStore(name, min, max, avg);
 
-  // Re-render table (updates body + footer totals)
   renderTable();
 
-  // Reset form
   storeForm.reset();
 }
+
 renderTable();

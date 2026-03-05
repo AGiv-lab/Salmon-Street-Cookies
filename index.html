@@ -31,46 +31,49 @@
   </div>
 
   <main id="main-content">
-    <section aria-label="Store locations">
-      <article class="location-card">
-        <h3>Seattle</h3>
-        <p>Hours Open: 6am - 7pm</p>
-        <p>Contact Info: 123-456-7890</p>
-        <p>Location: 2901 3rd Ave #300, Seattle, WA 98121</p>
-      </article>
 
-      <article class="location-card">
-        <h3>Tokyo</h3>
-        <p>Hours Open: 6am - 7pm</p>
-        <p>Contact Info: 222-222-2222</p>
-        <p>Location: 1 Chome-1-2 Oshiage, Sumida City, Tokyo 131-8634</p>
-      </article>
+  <h2>Sales Data</h2>
 
-      <article class="location-card">
-        <h3>Dubai</h3>
-        <p>Hours Open: 6am - 7pm</p>
-        <p>Contact Info: 333-333-3333</p>
-        <p>Location: 1 Sheikh Mohammed bin Rashid Blvd - Dubai</p>
-      </article>
+  <section>
+    <table id="sales-table"></table>
+  </section>
 
-      <article class="location-card">
-        <h3>Paris</h3>
-        <p>Hours Open: 6am - 7pm</p>
-        <p>Contact Info: 444-444-4444</p>
-        <p>Location: Champ de Mars, 5 Avenue Anatole France, 75007 Paris</p>
-      </article>
+  <section class="form-container">
+    <h3>Add a New Location</h3>
 
-      <article class="location-card">
-        <h3>Lima</h3>
-        <p>Hours Open: 6am - 7pm</p>
-        <p>Contact Info: 555-555-5555</p>
-        <p>Location: Ca. Gral. Borgoño cuadra 8, Miraflores 15074</p>
-      </article>
-    </section>
-  </main>
+    <form id="store-form">
+
+      <label>
+        Location Name
+        <input id="store-name" type="text" required>
+      </label>
+
+      <label>
+        Min Customers/Hour
+        <input id="store-min" type="number" required>
+      </label>
+
+      <label>
+        Max Customers/Hour
+        <input id="store-max" type="number" required>
+      </label>
+
+      <label>
+        Avg Cookies/Sale
+        <input id="store-avg" type="number" step="0.1" required>
+      </label>
+
+      <button type="submit">Add Location</button>
+
+    </form>
+  </section>
+
+</main> 
 
   <footer>
     <p>© 2026 Salmon Street Cookies</p>
   </footer>
+
+  <script src="app.js"></script>
 </body>
 </html>

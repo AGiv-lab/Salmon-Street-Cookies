@@ -84,6 +84,9 @@ tfoot th:first-child {
 
 tbody th {
   text-align: left;
+  tbody tr:nth-child(even) {
+  background-color: #ffe4e1;
+}
 }
 
 /* Location list on homepage */
