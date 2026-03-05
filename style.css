@@ -148,3 +148,98 @@ footer {
 #sales-table {
   margin-bottom: 3em;
 }
+
+.form-container {
+  max-width: 920px;
+  margin: 2.5em auto 3em;
+  padding: 1.5em;
+
+  background: #111;               /* match header */
+  border: 2px solid #000;
+  border-top: 7px solid salmon;   /* salmon trim */
+  border-radius: 12px;
+
+  box-shadow: 0 12px 26px rgba(0, 0, 0, 0.25);
+}
+
+.form-container h3 {
+  margin: 0 0 1em;
+  color: #fff;
+  font-family: 'Righteous', cursive;
+  font-size: 1.7em;
+  letter-spacing: 0.5px;
+}
+
+/* Inner form panel */
+#store-form {
+  background: #fff8f6;
+  border: 1px solid rgba(0,0,0,0.18);
+  border-radius: 10px;
+  padding: 1.25em;
+
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1em 1.25em;
+}
+
+/* Labels become neat “field blocks” */
+#store-form label {
+  margin: 0;                 /* overrides your label margin */
+  display: flex;
+  flex-direction: column;
+  gap: 0.4em;
+
+  font-weight: 700;
+  color: #111;
+  font-size: 0.95em;
+}
+
+/* Inputs: override earlier input width */
+#store-form input {
+  width: 100%;
+  padding: 0.7em 0.8em;
+  border: 1px solid #bbb;
+  border-radius: 8px;
+  font-size: 1em;
+  background: #fff;
+}
+
+/* Nice focus state (instructor-friendly polish) */
+#store-form input:focus {
+  outline: none;
+  border-color: salmon;
+  box-shadow: 0 0 0 3px rgba(250, 128, 114, 0.35);
+}
+
+/* Button across both columns */
+#store-form button {
+  grid-column: 1 / -1;
+
+  width: 100%;
+  padding: 0.9em 1em;
+  border: 2px solid #111;
+  border-radius: 10px;
+
+  background: salmon;
+  color: #111;
+  font-weight: 800;
+  font-size: 1.05em;
+
+  cursor: pointer;
+  transition: transform 0.08s ease, filter 0.2s ease;
+}
+
+#store-form button:hover {
+  filter: brightness(0.95);
+}
+
+#store-form button:active {
+  transform: translateY(1px);
+}
+
+/* Mobile: stack to one column */
+@media (max-width: 650px) {
+  #store-form {
+    grid-template-columns: 1fr;
+  }
+}
